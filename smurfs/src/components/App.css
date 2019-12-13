@@ -1,3 +1,11 @@
+.App-adjust {
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 1250px;
+    background-color: #4A6FA5
+}
+
 .App {
     text-align: center;
     justify-content: space-evenly;
@@ -6,9 +14,22 @@
     display: flex;
 }
 
-.App-adjust {
-    max-width: 0 auto;
+.card {
+    max-width: 700px;
+    display: flex;
+    text-align: center;
     align-items: center;
-    width: 1250px;
-    background-color: #4A6FA5
+    justify-content: space-evenly;
+    flex-flow: wrap;
+    margin: 2%;
+    padding: 2%;
+}
+
+.smurf-card {
+    margin: 2%;
+    padding: 4%;
+    border: 2px solid black;
+    border-radius: 15px;
+    width: 20%;
+    align-items: center
 }
