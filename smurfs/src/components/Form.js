@@ -1,30 +1,59 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { postSmurfs } from "./actions/action";
 
 const Form = props => {
-  const [textName, setTextName] = React.useState("");
+  const [newSmurf, setNewSmurf] = React.useState({
+    name: "",
+    age: "",
+    height: ""
+  });
+  const dispatch = useDispatch();
+
+  const changeHandler = e => {
+    setNewSmurf({
+      ...newSmurf,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handleSubmit = e => {
+    console.log({ newSmurf });
     e.preventDefault();
-  };
-  const handleChange = e => {
-    e.preventDefault();
-    setTextName(e.target.value);
+    dispatch(postSmurfs(newSmurf));
   };
 
   return (
     <div>
-      <h1> this is where the form is at</h1>
+      <h1> Add new Friends to the village</h1>
       <form onSubmit={handleSubmit}>
         <label />
-        <input placeholder="Name" onChange={handleChange} />
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={newSmurf.name}
+          onChange={changeHandler}
+        />
         <label />
-        <input placeholder="Age" />
+        <input
+          type="text"
+          name="age"
+          placeholder="Age"
+          value={newSmurf.age}
+          onChange={changeHandler}
+        />
         <label />
-        <input placeholder="height" />
-        <button onClick={props.postSmurfs}>POST</button>
+        <input
+          type="text"
+          name="height"
+          placeholder="height"
+          value={newSmurf.height}
+          onChange={changeHandler}
+        />
+        <button>POST</button>
       </form>
     </div>
   );

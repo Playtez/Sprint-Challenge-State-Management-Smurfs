@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 import { getSmurfs } from "./actions/action";
 
 const SmurfsDisplayed = props => {
-  console.log("this props in SmurfsDisplayed.js", props);
+  // console.log("this props in SmurfsDisplayed.js", props);
   return (
     <div>
-      <h1>display current smurfs here</h1>
-      <button onClick={props.getSmurfs}> clickbait</button>
+      <h1>Click to see all of the smurf village</h1>
+      <button onClick={props.getSmurfs}> See Friends</button>
       {props.smurfs.map(smurf => {
         return (
           <div key={smurf.id}>
